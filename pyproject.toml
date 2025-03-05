@@ -1,0 +1,9 @@
+[project]
+name = "iconify"
+version = "0.1.0"
+description = "Wrapper for iconify.design for Reflex"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "reflex>=0.7.1",
+]
