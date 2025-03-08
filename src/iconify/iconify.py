@@ -24,6 +24,17 @@ class IconifyIcon(rx.Component):
 
     # Since this uses dynamic imports, we should use NoSSRComponent
     # is_default = True
-
+    @classmethod
+    def create(cls, *children, **props):
+        if children:
+            if len(children) == 1 and isinstance(children[0], str):
+                props["icon"] = children[0]
+            else:
+                raise AttributeError(
+                    f"Passing multiple children to Icon component is not allowed: remove positional "
+                    f"argument: {children[1:]} to fix"
+                )
+        return super().create(*children, **props)
+    
 
 icon = IconifyIcon.create
